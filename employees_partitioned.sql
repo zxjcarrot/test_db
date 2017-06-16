@@ -175,3 +175,19 @@ source load_salaries2.dump ;
 source load_salaries3.dump ;
 
 source show_elapsed.sql ;
+-- ----------------------------
+-- Table structure for `test_timestamp`
+-- ----------------------------
+DROP TABLE IF EXISTS `test_timestamp`;
+CREATE TABLE `test_timestamp` (
+  `id` int(11) NOT NULL,
+  `timestamp` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of test_timestamp
+-- ----------------------------
+INSERT INTO `test_timestamp` VALUES ('1', '2017-06-15 13:29:34.001000');
+INSERT INTO `test_timestamp` VALUES ('2', '2017-06-15 13:30:41.000900');
+INSERT INTO `test_timestamp` VALUES ('3', '2017-06-15 11:47:37.989000');
