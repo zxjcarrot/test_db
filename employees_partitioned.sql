@@ -175,19 +175,30 @@ source load_salaries2.dump ;
 source load_salaries3.dump ;
 
 source show_elapsed.sql ;
+
 -- ----------------------------
--- Table structure for `test_timestamp`
+-- Table structure for `test_datatypes`
 -- ----------------------------
-DROP TABLE IF EXISTS `test_timestamp`;
-CREATE TABLE `test_timestamp` (
+DROP TABLE IF EXISTS `test_datatypes`;
+CREATE TABLE `test_datatypes` (
   `id` int(11) NOT NULL,
   `timestamp` datetime(6) NOT NULL,
+  `int` int(11) DEFAULT NULL,
+  `tinyint` tinyint(4) DEFAULT NULL,
+  `smallint` smallint(6) DEFAULT NULL,
+  `bigint` bigint(20) DEFAULT NULL,
+  `float` double DEFAULT NULL,
+  `numeric` decimal(10,0) DEFAULT NULL,
+  `char` char(255) DEFAULT NULL,
+  `varchar` varchar(255) DEFAULT NULL,
+  `double` double DEFAULT NULL,
+  `date` date DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
--- Records of test_timestamp
+-- Records of test_datatypes
 -- ----------------------------
-INSERT INTO `test_timestamp` VALUES ('1', '2017-06-15 13:29:34.001000');
-INSERT INTO `test_timestamp` VALUES ('2', '2017-06-15 13:30:41.000900');
-INSERT INTO `test_timestamp` VALUES ('3', '2017-06-15 11:47:37.989000');
+INSERT INTO `test_datatypes` VALUES ('1', '2017-06-15 13:29:34.001000', '1', '127', '32767', '9223372036854775807', '21312.123046875', '1234213', 'aa', 'gibberish jabberish', '5498498.498498498', '2017-06-16');
+INSERT INTO `test_datatypes` VALUES ('2', '2017-06-15 13:30:41.000900', '2', '-128', '-32768', '-9223372036854775808', '-31231.22265625', '224', 'b', 'asd', '-5498498.498498498', '0001-01-01');
+INSERT INTO `test_datatypes` VALUES ('3', '2017-06-15 11:47:37.989000', '3', '0', '0', '0', '0', '0', 'c', 'ss121', '0', '1000-01-01');
